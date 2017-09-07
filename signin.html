@@ -67,9 +67,9 @@ font-size:20px;
 <body bgcolor="#555">
 <header>
 <ul>
-  <a href="hgfd"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
+  <a href="main.html"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
 
-<li class="name" style="margin-left:58em;"><a href="signup.html">Sign Up</a></li>
+<li class="name" style="float:right"><a href="signup.html">Sign Up</a></li>
 
 </ul>
 </header>
@@ -87,20 +87,27 @@ font-size:20px;
 	 <br>
 	 <br>
 
-
+<form method="POST" action="">
 <p align="center" style="color:black;font-size: 20px;font-weight: normal;">
-<input style="margin-left:1em;" type="text" class="TextBox"placeholder="Username" name="username" id="uname"><br>
- <input style="margin-left:1em;" type="text" class="TextBox" placeholder="Password" name="password" id="pass"><br>
+<input style="margin-left:1em;" type="text" class="TextBox"placeholder="Username" name="user" id="uname"><br>
+ <input style="margin-left:1em;" type="text" class="TextBox" placeholder="Password" name="pass" id="pass"><br>
  </p>
 
  <br>
  <!---button---------------------------->
- <div class="button">
-   <a href="#">Sign In <span class="shift">›</span></a>
+
+ <button class="button" name="submit">
+   <span class="shift">Sign In ›</span>
    <div class="mask"></div>
- </div>
+ </button>
+ </form>
  <!--------------------------------->
   </center>
+
+
+
+
+
 <br>
 <br>
 <br>
@@ -112,6 +119,12 @@ font-size:20px;
 <br>
 
 </div>
+
+
+
+
+
+
 <br><br>
 <footer class="footer-distributed">
   <div class="footer-left">
