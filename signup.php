@@ -1,3 +1,52 @@
+<?php
+
+
+if(!mysql_connect('localhost','root','') || !mysql_select_db('Vista'))
+{
+  die("Could Not Connect");
+}
+else{
+  if(isset($_POST["sign"])){
+      session_start();
+    if(isset($_POST['username'])&& isset($_POST['password'])){
+    if(!empty($_POST['username']) && !empty($_POST['password'])) {
+
+
+      $date=date('Y-m-d',strtotime($_POST['dob']));
+      $fname=$_POST['fname'];
+      $lname=$_POST['lname'];
+      $email=$_POST['email'];
+      $password=$_POST['password'];
+      $username=$_POST['username'];
+      $dbid=$row['UserId'];
+
+        $sql="INSERT INTO signup(FirstName,LastName,DOB,Email,Password,Username) VALUES('$fname','$lname','$date','$email','$password','$username')";
+        $result=mysql_query($sql);
+            if($result){
+                echo "Account Successfully Created";
+
+                $_SESSION['sess_user']=$dbid;
+
+                header("Location: topics.php");
+              }
+              else {
+                 echo "Failure!";
+                 echo $result;
+        }
+
+
+
+    } else {
+        echo "All fields are required!";
+    }
+    }
+
+}
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,35 +169,6 @@
   	}
 
 
-    div.gallery {
-        margin-left: 10px;
-        border: 1px solid #ccc;
-        float: left;
-        width: auto;
-        margin-bottom: 10px;
-    }
-
-    div.gallery:hover {
-        border: 1px solid #777;
-        opacity: 0.7;
-    }
-
-    div.gallery img {
-        width: 250px;
-        height: 150px;
-    }
-
-    div.desc {
-        padding: 5px;
-        text-align: center;
-    	background: #555;
-    	font-family:Comic Sans MS;
-    	color:white;
-    }
-    input:invalid {
-        border-color:red;
-        border-width: 3px;
-}
 
 </style>
 
@@ -171,7 +191,7 @@
 
     </li>
 
-    <li class="name"style="float:right" ><a href="signin.html">Sign In</a></li>
+    <li class="name"style="float:right" ><a href="signin.php">Sign In</a></li>
 
     </ul>
   </header>
@@ -198,16 +218,17 @@
 
 
     <p align="center" style="color:black;font-size: 20px;font-weight: normal;">
+      <form method="post" action="signup.php">
     <input style="margin-left:1em;" type="text" class="TextBox" placeholder="First Name" name="fname"  pattern="[A-Za-z]{1,20}"><br>
      <input style="margin-left:1em;" type="text" class="TextBox" placeholder="Last Name" name="lname" pattern="[A-Za-z]{1,20}"><br>
      <input style="margin-left:1em;" type="date" class="TextBox" placeholder="Date of Birth" name="dob" ><br>
     </p><br>
 
 
-    <button class="button" onclick="plusSlides(1)">
+    <div class="button" style="height:4px;width:110px;" onclick="plusSlides(1)">
       <span class="shift">Next ›</span>
       <div class="mask"></div>
-    </button>
+    </div>
 
       </center>
     <br>
@@ -242,7 +263,7 @@
      <p align="center" style="color:black;font-size: 20px;font-weight: normal;">
      <input style="margin-left:1em;" type="email" class="TextBox" placeholder="Email" name="email" id="email"><br>
      <input style="margin-left:1em;" type="text" class="TextBox" placeholder="Password" name="password" id="pass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"><br>
-     <input style="margin-left:1em;" type="text" class="TextBox" placeholder="Confirm Password" name="password" id="pass1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" onkeyup="check_pass1()"><br>
+     <input style="margin-left:1em;" type="text" class="TextBox" placeholder="Confirm Password"  id="pass1" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" onkeyup="check_pass1()"><br>
      <input style="margin-left:1em;" type="text" class="TextBox"placeholder="Username" name="username" id="uname" pattern="^[A-Za-z0-9_]{1,32}$" ></p><br>
      <script>
      function check_pass1() {
@@ -268,8 +289,13 @@
        <span class="shift">Sign Up ›</span>
        <div class="mask"></div>
      </button>
+   </form>
 
       </center>
+
+
+
+
      <br>
      <br>
      <br>
@@ -284,7 +310,6 @@
 
   </div>
 
-  
 
 
 
@@ -295,9 +320,6 @@
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-
-
 
 <footer class="footer-distributed">
 <div class="footer-left">

@@ -46,7 +46,7 @@ body{
   <!--------------------------------------------------------------------------------------------------->
 <header>
 <ul>
-  <a href="main.html"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
+  <a href="hgfd"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
 
   <li class="name">
 
@@ -57,8 +57,8 @@ body{
 
   </li>
 
-  <li class="name" style="float:right"><a href="signin.html">Sign In</a></li>
-  <li class="name" style="float:right"><a href="signup.html">Sign Up</a></li>
+  <li class="name"><a href="signin.html">Sign In</a></li>
+  <li class="name"><a href="signup.html">Sign Up</a></li>
 </ul>
 </header>
 <br>

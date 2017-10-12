@@ -28,13 +28,13 @@
   opacity: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 80%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%)
 }
 .container {
     position: relative;
-    height:60%;
+    height:400px;;
     width:100%;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .container:hover .image {
-  opacity: 0.23;
+  opacity: 0.3;
 }
 
 .container:hover .middle {
@@ -74,37 +74,49 @@ header{
   position: fixed;
   overflow: visible;
   border-bottom: none;
-  /* I need a higher z-index here because of the scroll-over effect. */
   z-index: 4;
 }
 
 .splash-container {
-    background: #1f8dd6;
+    background-color: #66BBBA;
+    background-size: cover;
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    height: 60%;
+    height: 70%;
     top:9%;
     left: 0;
     position: fixed !important;
 }
 
 .splash {
-    /* absolute center .splash within .splash-container */
-    width: 100%;
+    width: 80%;
     height: 80%;
-    margin-top:-10px;
-    margin-left: -10px;
+    margin-left: 70px;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    top: 40px; left: 0; bottom: 0; right: 0;
     text-align: center;
     text-transform: uppercase;
+
+
+}
+.splash-img{
+  background: url(images/main1.png);
+  background-repeat: no-repeat;
+  background-size:cover;
+  width:150%;
+  height: 100%;
+  margin-left: -200px;
+  background-position: center;
+  opacity: 0.4;
+  position: absolute;
+
 }
 
 
 .con{
-  top:69%;
+  top:75%;
   position: absolute;
   z-index: 2;
 }
@@ -119,32 +131,34 @@ header{
   <!--------------------------------------------------------------------------------------------------->
 <header>
 <ul>
-  <a href="hgfd"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
+  <a href="main.php"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
 
-  <li class="name">
+  <li>
 
 <form method="get" action="/search" id="searchbox5">
-    <input id="search5" name="q" type="text" size="50" placeholder="Search..." />
+    <input id="search5" name="q" type="text"  placeholder="Search..." />
 
 </form>
 
   </li>
 
-  <li class="name"style="float:right"><a href="signin.html">Sign In</a></li>
-  <li class="name" style="float:right"><a href="signup.html">Sign Up</a></li>
+  <li style="float:right;"><a href="signin.php">Sign In</a></li>
+  <li style="float:right;" ><a href="signup.php">Sign Up</a></li>
 </ul>
 </header>
 <!--------------------------------------------------------------------------------------------------->
 
   <div class="splash-container">
+    <div class="splash-img"></div>
       <div class="splash">
-          <h1 class="splash-head">Vista</h1>
+          <h1 >Vista</h1>
           <p class="font">
             Come for what you love.
             Stay for what you discover.
           </p>
 
-      </div>
+
+    </div>
   </div>
 
 
@@ -211,8 +225,12 @@ header{
 <br>
 <br>
 <br>
+<br>
+<br>
+
+
   <ul >
-  <li class="text"><a href="signin.html">Share Your Ideas</a></li>
+  <li class="text"><a href="signin.php">Share Your Ideas</a></li>
   </ul>
 </div>
 </div>
@@ -221,17 +239,13 @@ header{
   <div class="footer-left">
 				<a href="hgfd"><img src="images/logo.png"height="60" width="230" align="left" id="logo" ></a><br><br><br><br><br>
 				<p class="footer-links">
-					<a href="main.html">Home</a>
-          ·
-          <a href="contact.html">Contact Us</a>
+					<a href="terms.php">Terms of Service</a>
 					·
-					<a href="terms.html">Terms of Service</a>
+					<a href="aboutus.php">About</a>
 					·
-					<a href="aboutus.html">About</a>
+					<a href="faq.php">FaQ</a>
 					·
-					<a href="faq.html">FaQ</a>
-					·
-					<a href="privacy.html">Privacy</a>
+					<a href="privacy.php">Privacy</a>
 				</p>
 				<p class="footer-company-name">VISTA &copy; 2017</p>
 			</div>

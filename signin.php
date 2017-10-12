@@ -28,20 +28,15 @@ body{
   font-family:Comic Sans MS;
 }
 
-
-
-
-
-
 .font {
 font-size:20px;
   font-family: Comic Sans MS;
 }
 .TextBox{
- padding: 0;
+    padding: 0;
     height: 40px;
     width: 350px;
-	border-radius: 5px;
+	  border-radius: 5px;
     position: relative;
     left: 0;
     outline: none;
@@ -49,7 +44,7 @@ font-size:20px;
     border-color: rgba(0,0,0,.15);
     background-color: #34495E;
     font-size: 20px;
-	color: #cdcdcd;
+    color: #cdcdcd;
 	}
 
 .up
@@ -58,8 +53,6 @@ font-size:20px;
 
 }
 
-
-
 </style>
 
 </head>
@@ -67,9 +60,9 @@ font-size:20px;
 <body bgcolor="#555">
 <header>
 <ul>
-  <a href="main.html"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
+  <a href="main.php"><img src="images/logo.png"height="40" width="160" align="left" id="logo" ></a>
 
-<li class="name" style="float:right"><a href="signup.html">Sign Up</a></li>
+<li  style="float:right"><a href="signup.php">Sign Up</a></li>
 
 </ul>
 </header>
@@ -100,16 +93,50 @@ font-size:20px;
    <span class="shift">Sign In ›</span>
    <div class="mask"></div>
  </button>
+
  </form>
  <!--------------------------------->
   </center>
+  <?php
+  if(isset($_POST["submit"])){
+
+  if(!empty($_POST['user']) && !empty($_POST['pass'])) {
+      $user=$_POST['user'];
+      $pass=$_POST['pass'];
+
+      $con=mysql_connect('localhost','root','') or die(mysql_error());
+      mysql_select_db('Vista') or die("cannot select DB");
+
+      $query=mysql_query("SELECT * FROM signup WHERE Username='".$user."' AND Password='".$pass."'");
+      $numrows=mysql_num_rows($query);
+      if($numrows!=0)
+      {
+      while($row=mysql_fetch_assoc($query))
+      {
+      $dbusername=$row['Username'];
+      $dbpassword=$row['Password'];
+      $dbid=$row['UserId'];
+      }
+
+      if($user == $dbusername && $pass == $dbpassword)
+      {
+      session_start();
+      $_SESSION['sess_user']=$dbid;
+
+      /* Redirect browser */
+      header("Location: timeline.php");
+      }
+      } else {
+        echo  "<script type='text/javascript'>alert('Invalid username/password.  Please try again');</script>";
+      }
+
+  } else {
+      echo "<script type='text/javascript'>alert('All fields are required');</script>";
+  }
+  }
+  ?>
 
 
-
-
-
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -120,12 +147,6 @@ font-size:20px;
 
 </div>
 
-
-
-
-
-
-<br><br>
 <footer class="footer-distributed">
   <div class="footer-left">
 				<a href="hgfd"><img src="images/logo.png"height="60" width="230" align="left" id="logo" ></a><br><br><br><br><br>

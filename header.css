@@ -4,6 +4,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #292c2f;
+
 }
 
 li  {
@@ -38,7 +39,7 @@ background-color:rgb(255, 0, 0);
 }
 
 #searchbox5{
-    width:800px;
+    width:80%;
     margin:0 auto;
     padding: 17px 0 0px;
 
@@ -48,7 +49,7 @@ background-color:rgb(255, 0, 0);
     border:0 none;
     font: bold 12px Arial, Helvetica, Sans-serif;
     color:#777;
-    width:400px;
+    width:80%;
     padding:5px 15px 6px 35px;
     border-radius:20px;
     text-shadow:0 2px 2px rgba(0,0,0,0.3);
@@ -57,28 +58,6 @@ background-color:rgb(255, 0, 0);
 }
 
 #search5:focus {
-    width: 600px;
+    width: 100%;
     outline:0;
 }
-
-
-/*
-
-<header>
-<ul>
-  <a href="hgfd"><img src="logo.png"height="33" width="150" align="left" id="logo" ></a>
-
-  <li class="name">
-
-<form method="get" action="/search" id="searchbox5">
-    <input id="search5" name="q" type="text" size="40" placeholder="Search..." />
-
-</form>
-
-  </li>
-
-  <li class="name"><a href="#contact">Sign In</a></li>
-  <li class="name"><a href="#about">Sign Up</a></li>
-</ul>
-</header>
-*/

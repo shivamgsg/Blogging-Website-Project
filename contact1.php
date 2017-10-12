@@ -109,8 +109,8 @@ body{
 
   </li>
 
-  <li class="name" style="float:right"><a href="signin.html">Sign In</a></li>
-  <li class="name" style="float:right"><a href="signup.html">Sign Up</a></li>
+  <li class="name" style="float:right;"><a href="signin.php">Sign In</a></li>
+  <li class="name" style="float:right;"><a href="signup.php">Sign Up</a></li>
 </ul>
 </header>
 
@@ -151,7 +151,7 @@ body{
      <input  type="email" class="TextBox" placeholder="E-mail" id="mail" required="true"><span id="s2" style="color: red;padding-right:0px;" >  *</span><br><br>
      <textarea class="TextBox" placeholder="Message" id="msg" style="resize:none; height:100px;margin-right:10px;"></textarea><br><br>
      <button class="button" style="opacity:100;">
-       <a href="#" >Submit<span class="shift">›</span></a>
+      <span class="shift"> Submit ›</span>
        <div class="mask"></div>
      </button><br><br>
 </center>
