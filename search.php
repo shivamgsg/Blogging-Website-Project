@@ -507,52 +507,8 @@ function Refresh()
   </div>
 
 
-<center>
-  <div class="heart" id="<?php echo $dbpostid ?>"></div>
-  <span name="co"></span>
-  <script>
 
 
-  $("#<?php echo $dbpostid ?>").on('click touchstart', function(){
-    var click = +$(this).data('clicks') || 0;
-    if (click % 2 == 0) {
-      $(this).toggleClass('is_animating');
-      $(this).css({
-      'background-position':'right'
-      });
-
-       }else{
-         $(this).css({
-         'background-position':'left'
-         });
-
-       };
-
-       $(this).data('clicks',click+1);
-
-  });
-
-  /*when the animation is over, remove the class*/
-  $("#<?php echo $dbpostid ?>").on('animationend', function(){
-  $(this).toggleClass('is_animating');
-  });
-
-  </script>
-</center>
-
-<div class="comment">
-  <textarea placeholder="Write a comment..." style="resize:none;"></textarea>
-  <script src='dist/autosize.js'></script>
-  <script>
-    autosize(document.querySelectorAll('textarea'));
-  </script>
-  <div class="container" style="margin-top:4px;margin-right:4px;position:relative;float:right">
-  			<button class="btn btn-inside btn-boarder" id="<?php echo $dbpostid ?>"><img src="https://i.cloudup.com/gBzAn-oW_S-2000x2000.png" width="33px" height="40px" id="plane" ></button>
-  			<div class="bg"><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" id="bg" width="25px" height="25px" style="opacity:0; position:center;margin-left:5px; margin-top:3px;"></div>
-  			<div class="around around-boarder" onclick="ani(); anitwo();"></div>
-  		</div>
-
-</div>
 
 
 </div>
